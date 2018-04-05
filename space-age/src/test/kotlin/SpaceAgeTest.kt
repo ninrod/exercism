@@ -1,5 +1,4 @@
 import org.junit.Test
-import org.junit.Ignore
 import kotlin.test.assertEquals
 
 class SpaceAgeTest {
@@ -22,7 +21,7 @@ class SpaceAgeTest {
     fun ageOnVenus() {
         val age = SpaceAge(189839836)
 
-        assertEquals(9.78, age.onVenus())
+        assertEquals(9.79, age.onVenus())
     }
 
     @Test
