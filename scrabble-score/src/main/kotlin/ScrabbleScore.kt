@@ -14,9 +14,3 @@ object ScrabbleScore {
     private val map = constructMap()
     fun scoreWord(w: String): Int = w.map { map[it.toUpperCase()] }.fold(0) { a, b -> a + (b ?: 0) }
 }
-
-fun main(args: Array<String>) {
-    println(ScrabbleScore.scoreWord("cabbage"))
-}
-
-
