@@ -1,18 +1,7 @@
 import org.junit.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
-import kotlin.test.assertFalse
 
 class HandshakeCalculatorTest {
-
-    @Test
-    fun testSignal() {
-        assertTrue(Signal.WINK.hasBit(19))
-        assertTrue(Signal.DOUBLE_BLINK.hasBit(19))
-        assertFalse(Signal.CLOSE_YOUR_EYES.hasBit(19))
-        assertFalse(Signal.JUMP.hasBit(19))
-        assertTrue(Signal.REVERSE.hasBit(19))
-    }
 
     @Test
     fun testThatInput1YieldsAWink() {

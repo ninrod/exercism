@@ -5,11 +5,10 @@ enum class Signal(private val bit: Int, private val pos: Int) {
   JUMP(0b1000, 3),
   REVERSE(0b10000, 4);
   companion object {
-    private fun order() = listOf(WINK, DOUBLE_BLINK, CLOSE_YOUR_EYES, JUMP)
     fun handshake(n: Int): List<Signal> {
-      val l = order().filter { it.hasBit(n) }
-      return if(REVERSE.hasBit(n)) l.asReversed() else l
+      val l = listOf(WINK,DOUBLE_BLINK,CLOSE_YOUR_EYES,JUMP).filter { it.hasBit(n) }
+      return if (REVERSE.hasBit(n)) l.asReversed() else l
     }
   }
-  fun hasBit(n: Int) = n and bit ushr pos == 1
+  private fun hasBit(n: Int) = n and bit ushr pos == 1
 }
