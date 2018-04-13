@@ -1,4 +1,8 @@
 object SumOfMultiples {
-    fun sum(s: Set<Int>, n: Int): Int = (n-1 downTo (s.min().takeIf { i -> i != null } ?: 0))
-            .filter { s.filter { f -> it % f == 0 }.isNotEmpty() } .sum()
+    fun sum(s: Set<Int>, n: Int):Int = ((s.min() ?: 0) until n).filter { s.any { f -> it % f == 0 } }.sum()
+}
+
+fun main(args: Array<String>) {
+    val s = SumOfMultiples.sum(setOf(30,50,70,110),200)
+    println(s)
 }
