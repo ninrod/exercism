@@ -29,10 +29,13 @@ starting from the right. We will be doubling
 4_3_ 1_8_ 0_4_ 6_6_
 ```
 
+
+
 If doubling the number results in a number greater than 9 then subtract 9
 from the product. The results of our doubling:
 
 ```text
+4_3_ 1_8_ 0_4_ 6_6_
 8569 2478 0383 3437
 ```
 
