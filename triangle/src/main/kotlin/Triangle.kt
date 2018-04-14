@@ -1,10 +1,15 @@
-class Triangle(a: Number, b: Number, c: Number) {
-    private val l = listOf(a.toDouble(), b.toDouble(), c.toDouble()).sorted()
+class Triangle(vararg list: Number) {
+    private val l = list.map { it.toDouble() }.sorted()
+    var isEquilateral: Boolean = false
+    var isIsosceles: Boolean = false
+    var isScalene: Boolean = false
     init {
         require(l.sum() > 0) { "sum of sides must be > 0" }
         require(l[0] + l[1] > l[2])
+        when(l.distinct().size) {
+            1 -> {isEquilateral = true; isIsosceles = true;}
+            2 -> isIsosceles = true
+            else -> isScalene = true
+        }
     }
-    val isEquilateral: Boolean get() = l[0] == l[1] && l[1] == l[2]
-    val isIsosceles: Boolean get() = l[0] == l[1] || l[0] == l[2] || l[1] == l[2]
-    val isScalene: Boolean get() = l[0] != l[1] && l[0] != l[2] && l[1] != l[2]
 }
