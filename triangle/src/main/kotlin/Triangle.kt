@@ -5,7 +5,7 @@ class Triangle(vararg list: Number) {
     var isScalene: Boolean = false
     init {
         require(l.sum() > 0) { "sum of sides must be > 0" }
-        require(l[0] + l[1] > l[2])
+        require(l[0] + l[1] > l[2]) { "triangle is invalid"}
         when(l.distinct().size) {
             1 -> {isEquilateral = true; isIsosceles = true;}
             2 -> isIsosceles = true
