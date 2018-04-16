@@ -9,11 +9,6 @@ class Series(private val s: String) {
         require(s.length >= n) { "n=$n is greater then s.length=${s.length}"}
         require(n >= 0) { "n=$n must be positive" }
         if (n == 0) return 1
-        return s.mapIndexed { i, _ ->
-            if (i <= s.length - n)
-                s.substring((i until i+n)).map{ it.int() }.reduce { a, e -> a * e }
-            else
-                null
-        }.filterNotNull().max() ?: 0
+        return s.windowed(n).map { it.map { it.int() }.reduce{ a, e -> a * e} }.max() ?: 0
     }
 }
