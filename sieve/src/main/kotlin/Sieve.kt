@@ -3,8 +3,11 @@ object Sieve {
         return listOf(1)
     }
 }
+
+fun test(): Pair<List<Int>, Int> = Pair(listOf(1), 1)
+
 fun main(args: Array<String>) {
-    val n = 10
-    val l = (2..n).mapNotNull { if (it % 2 == 0) it else null }
-    println(l)
+    val (a, b) = test()
+    println(a)
+    println(b)
 }
