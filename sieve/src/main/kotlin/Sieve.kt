@@ -1,11 +1,10 @@
 object Sieve {
-    private fun reduce(list: List<Int>, pos: Int): Pair<List<Int>, Int> {
-        if (pos >= list.size - 1)
-            return Pair(list, pos)
-        val n = list.take(pos + 1) + list.drop(pos + 1).filterNot { it % list[pos] == 0 }
-        return reduce(n, n.indexOf(list[pos]) + 1)
-    }
-    fun primesUpTo(n: Int): List<Int> {
-        return reduce((2..n).toList(), 0).first
-    }
+    private fun sieve(l: List<Int>): List<Int> = if (l.isEmpty()) l
+            else l.take(1) + sieve(l.drop(1) - (l.first()..l.last()).step(l.first()).drop(1).toList())
+    fun primesUpTo(n: Int): List<Int> = sieve((2..n).toList())
+}
+
+fun main(args: Array<String>) {
+    val l = Sieve.primesUpTo(20)
+    println(l)
 }
