@@ -5,8 +5,9 @@ object Atbash {
     private val er = alphabet.reversed() + numbers
     private var map: Map<Char, Char> = e.mapIndexed { i, c ->  c to er[i] }.toMap()
     private val reversedMap = map.entries.associateBy({ it.value }) { it.key }
+    private val regex = """[${' '},.,${'!'},${'?'},${','}]""".toRegex()
     private fun cifra(input: String, map: Map<Char,Char>): String = input
-            .filter { it.isLetterOrDigit() }
+            .replace(regex, "")
             .toLowerCase()
             .map { map[it] }.joinToString("")
     fun encode(input: String): String = cifra(input, map).chunked(5).joinToString(" ")
