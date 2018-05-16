@@ -3,19 +3,19 @@ object Atbash {
     val numbers = "123456789"
     val e = alphabet + numbers
     val er = alphabet.reversed() + numbers
-    var map = e.mapIndexed { i, c ->  c to er[i] }.toMap()
+    var map: Map<Char, Char> = e.mapIndexed { i, c ->  c to er[i] }.toMap()
+    val reversed = map.entries.associateBy({ it.value }) { it.key }
+    val regex = """[${' '},.,${'!'},${'?'},${','}]""".toRegex()
 
-    fun encode(input: String): String =
-            input.replace("""[\s,.,${'!'},${'?'},,]""".toRegex(), "")
-                .toLowerCase()
-                .map { map[it] }.joinToString("")
-                .chunked(5)
-                .joinToString(" ")
+    fun encode(input: String): String = input
+            .replace(regex, "")
+            .toLowerCase()
+            .map { map[it] }.joinToString("")
+            .chunked(5)
+            .joinToString(" ")
 
-    fun decode(input: String): String = ""
-}
-
-fun main(args: Array<String>) {
-    val a = "thequickbrownfoxjumpsoverthelazydog"
-    println(Atbash.encode(a))
+    fun decode(input: String): String = input
+            .replace(regex, "")
+            .toLowerCase()
+            .map { reversed[it] }.joinToString("")
 }
