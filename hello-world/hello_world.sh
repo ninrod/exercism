@@ -12,8 +12,8 @@ set -o nounset
 main() {
   # A string variable containing only the FIRST argument passed to the script,
   # you can use input=$@ to get a string with ALL arguments
-  input=$1
-
+  echo "Hello, World!"
+  return 0
   # Add your code here
 }
 
