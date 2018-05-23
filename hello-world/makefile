@@ -23,3 +23,6 @@ clean:
 tests.out: test/test_hello_world.c src/hello_world.c src/hello_world.h
 	@echo Compiling $@
 	@$(CC) $(CFLAGS) src/hello_world.c test/vendor/unity.c test/test_hello_world.c -o tests.out
+
+deploy:
+	exercism submit src/hello_world.c
