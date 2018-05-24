@@ -1,3 +1,0 @@
-name: 'hello_world'
-dev_dependencies:
-  test: '<0.13.0'
