@@ -1,15 +1,14 @@
-class Matrix (matrix: List<List<Int>>) {
+data class Matrix (val matrix: List<List<Int>>) {
     val saddlePoints: Set<MatrixCoordinate> get() {
-
-        return setOf(MatrixCoordinate(0, 0))
+        var s =  HashSet<MatrixCoordinate>()
+        matrix.forEachIndexed { i, list ->
+            list.forEachIndexed { j, e ->
+                val mc = MatrixCoordinate(i, j)
+                val maxRow = matrix[i].max()
+                val minCol = matrix.map { it[j] }.min()
+                if (e == maxRow && e == minCol) s.add(mc)
+            }
+        }
+        return s
     }
-}
-
-fun main(args: Array<String>) {
-    val matrix = Matrix(listOf(
-            listOf(9, 8, 7),
-            listOf(5, 3, 2),
-            listOf(6, 6, 7)
-    ))
-
 }
