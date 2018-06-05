@@ -1,1 +1,9 @@
-* exercism.io personal language stack
+* my exercism.io learning repo
+
+| domain             | tool            |
+|--------------------+-----------------|
+| programable editor | elisp (emacs)   |
+| scripting          | bash and python |
+| server side        | kotlin and java |
+| low level/system   | c and rust      |
+| frontend           | typescript      |
