@@ -6,9 +6,13 @@ CFLAGS += -pedantic
 CFLAGS += -Werror
 
 VFLAGS  = --quiet
+VFLAGS += --show-leak-kinds=all
 VFLAGS += --tool=memcheck
 VFLAGS += --leak-check=full
 VFLAGS += --error-exitcode=1
+vflags += --track-origins=yes
+vflags += --verbose
+vflags += --log-file=valgrind-out.txt
 
 test: tests.out
 	@./tests.out

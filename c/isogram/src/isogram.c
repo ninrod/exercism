@@ -28,8 +28,10 @@ int comp (const void* e1, const void *e2) {
 }
 
 bool is_isogram(const char phrase[]) {
-  char* s = malloc(strlen(phrase));
-  strcpy(s, phrase);
+  char* filtered = filter(phrase);
+  char* s = malloc(strlen(filtered));
+  strcpy(s, filtered);
+  free(filtered);
   for(int i = 0; s[i]; i++){
     s[i] = tolower(s[i]);
   }
