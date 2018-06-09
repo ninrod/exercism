@@ -12,7 +12,7 @@ VFLAGS += --leak-check=full
 VFLAGS += --error-exitcode=1
 VFLAGS += --track-origins=yes
 VFLAGS += --verbose
-VFLAGS += --log-file=valgrind-out.txt
+VFLAGS += --log-file=valgrind-out.log
 
 test: tests.out
 	@./tests.out

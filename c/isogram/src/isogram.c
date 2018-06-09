@@ -5,9 +5,11 @@
 
 char* filter(const char* s) {
   if ((s == NULL) || (s[0] == '\0')) {
-    return "";
+    char* s = malloc(2);
+    s[0] = '\0';
+    return s;
   }
-  char* f = malloc(strlen(s));
+  char* f = malloc(strlen(s) + 1);
   int k = 0;
   for (size_t i = 0; i < strlen(s); i++) {
     if (s[i]>='a' && s[i]<='z')
@@ -29,12 +31,10 @@ int comp (const void* e1, const void *e2) {
 
 bool is_isogram(const char phrase[]) {
   char* filtered = filter(phrase);
-  char* s = malloc(strlen(filtered));
+  char* s = malloc(strlen(filtered) + 1);
   strcpy(s, filtered);
-  free(filtered);
-  for(int i = 0; s[i]; i++){
+  for(size_t i = 0; i < strlen(s); i++)
     s[i] = tolower(s[i]);
-  }
   qsort(s, strlen(s), sizeof(*s), comp);
   printf("sorted string = %s", s);
   for (size_t i = 1; i < strlen(s); ++i)
@@ -43,6 +43,7 @@ bool is_isogram(const char phrase[]) {
       return false;
     }
   free(s);
+  free(filtered);
   return true;
 }
 
