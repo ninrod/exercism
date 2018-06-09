@@ -28,35 +28,35 @@ int comp (const void* e1, const void *e2) {
   return 0;
 }
 
-bool is_isogram(const char phrase[]) {
-  char* filtered = filter(phrase);
-  char* s = malloc(strlen(filtered) + 1);
-  strcpy(s, filtered);
+void lower_str(char *s) {
   for(size_t i = 0; i < strlen(s); i++)
     s[i] = tolower(s[i]);
-  qsort(s, strlen(s), sizeof(*s), comp);
-  printf("sorted string = %s", s);
-  for (size_t i = 1; i < strlen(s); ++i)
-    if (s[i-1] == s[i]) {
-      free(s);
+}
+
+bool is_isogram(const char phrase[]) {
+  char* lower = malloc(strlen(phrase) + 1);
+  strcpy(lower, phrase);
+  lower_str(lower);
+  char* filtered = filter(lower);
+  qsort(filtered, strlen(filtered), sizeof(*filtered), comp);
+  for (size_t i = 1; i < strlen(filtered); ++i)
+    if (filtered[i-1] == filtered[i]) {
+      free(filtered);
       return false;
     }
-  free(s);
   free(filtered);
   return true;
 }
 
-/* void dump_result(const char s[]) { */
-/*   bool b = is_isogram(s); */
-/*   if (b) { */
-/*     printf("%s É um isograma!\n", s); */
-/*   } else { */
-/*     printf("%s NÃO é um isograma!\n", s); */
-/*   } */
-/* } */
+void dump_result(const char s[]) {
+  bool b = is_isogram(s);
+  if (b) {
+    printf("%s É um isograma!\n", s);
+  } else {
+    printf("%s NÃO é um isograma!\n", s);
+  }
+}
 
 /* int main() { */
-/*   dump_result("isogram"); */
-/*   dump_result("filipe"); */
-/*   dump_result("thumbscrew-japingly"); */
+/*   dump_result("Alphabet"); */
 /* } */
