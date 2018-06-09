@@ -5,5 +5,6 @@
 #include <string.h>
 
 bool is_isogram(const char phrase[]);
+char* filter(const char* s);
 
 #endif
