@@ -13,5 +13,6 @@ bool is_isogram(const char phrase[]) {
 }
 
 int main() {
-  printf("oi");
+  char *s = "filipe";
+  printf("a string é: %s\n", s);
 }
