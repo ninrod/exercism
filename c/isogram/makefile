@@ -23,3 +23,7 @@ clean:
 tests.out: test/test_isogram.c src/isogram.c src/isogram.h
 	@echo Compiling $@
 	@$(CC) $(CFLAGS) src/isogram.c test/vendor/unity.c test/test_isogram.c -o tests.out
+run:
+	@echo running main in isogram
+	@$(CC) $(CFLAGS) src/isogram.c -o run_main.out
+	@./run_main.out
