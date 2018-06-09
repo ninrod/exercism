@@ -38,6 +38,7 @@ bool is_isogram(const char phrase[]) {
   strcpy(lower, phrase);
   lower_str(lower);
   char* filtered = filter(lower);
+  free(lower);
   qsort(filtered, strlen(filtered), sizeof(*filtered), comp);
   for (size_t i = 1; i < strlen(filtered); ++i)
     if (filtered[i-1] == filtered[i]) {
