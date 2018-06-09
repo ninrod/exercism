@@ -31,3 +31,6 @@ run:
 	@echo running main in isogram
 	@$(CC) $(CFLAGS) src/isogram.c -o run_main.out
 	@./run_main.out
+
+deploy:
+	exercism submit src/isogram.c
