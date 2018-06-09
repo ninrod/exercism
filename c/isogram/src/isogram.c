@@ -11,10 +11,9 @@ char* filter(const char* s) {
   }
   char* f = malloc(strlen(s) + 1);
   int k = 0;
-  for (size_t i = 0; i < strlen(s); i++) {
+  for (size_t i = 0; i < strlen(s); i++)
     if (s[i]>='a' && s[i]<='z')
       f[k++] = s[i];
-  }
   f[k] = '\0';
   return f;
 }
