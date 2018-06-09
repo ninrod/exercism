@@ -48,16 +48,3 @@ bool is_isogram(const char phrase[]) {
   free(filtered);
   return true;
 }
-
-void dump_result(const char s[]) {
-  bool b = is_isogram(s);
-  if (b) {
-    printf("%s É um isograma!\n", s);
-  } else {
-    printf("%s NÃO é um isograma!\n", s);
-  }
-}
-
-/* int main() { */
-/*   dump_result("Alphabet"); */
-/* } */
