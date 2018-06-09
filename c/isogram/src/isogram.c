@@ -5,13 +5,6 @@
 
 /* void qsort(void* ptr, size_t count, size_t size, int (*comp)(const void*, const void*)); */
 
-bool is_isogram(const char phrase[]) {
-  if(strlen(phrase) > 0) {
-    return true;
-  }
-  return false;
-}
-
 int comp (const void* e1, const void *e2) {
   int a = *((char*) e1);
   int b = *((char*) e2);
@@ -22,11 +15,29 @@ int comp (const void* e1, const void *e2) {
   return 0;
 }
 
-int main() {
-  char s[] = "filipe";
-  printf("sizeof(s) = %d\n", (int)sizeof(s));
-  printf("strnlen(s) = %d\n", (int)strlen(s));
-  printf("sizeof(*s) = %d\n", (int)sizeof(*s));
+bool is_isogram(const char phrase[]) {
+  char *s = malloc(strlen(phrase));
+  strcpy(s, phrase);
   qsort(s, strlen(s), sizeof(*s), comp);
-  printf("a string é: %s\n", s);
+  for (size_t i = 1; i < strlen(s); ++i)
+    if (s[i-1] == s[i]) {
+      free(s);
+      return false;
+    }
+  free(s);
+  return true;
+}
+
+void dump_result(const char s[]) {
+  bool b = is_isogram(s);
+  if (b) {
+    printf("%s É um isograma!\n", s);
+  } else {
+    printf("%s NÃO é um isograma!\n", s);
+  }
+}
+
+int main() {
+  dump_result("isogram");
+  dump_result("filipe");
 }
