@@ -12,7 +12,21 @@ bool is_isogram(const char phrase[]) {
   return false;
 }
 
+int comp (const void* e1, const void *e2) {
+  int a = *((char*) e1);
+  int b = *((char*) e2);
+  if (a < b)
+    return -1;
+  if (a > b)
+    return 1;
+  return 0;
+}
+
 int main() {
-  char *s = "filipe";
+  char s[] = "filipe";
+  printf("sizeof(s) = %d\n", (int)sizeof(s));
+  printf("strnlen(s) = %d\n", (int)strlen(s));
+  printf("sizeof(*s) = %d\n", (int)sizeof(*s));
+  qsort(s, strlen(s), sizeof(*s), comp);
   printf("a string é: %s\n", s);
 }
