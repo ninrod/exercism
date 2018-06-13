@@ -14,5 +14,7 @@ fn main() {
     println!("test: {:?}", chars);
 
     let s: String = String::from_iter(chars);
-    println!("s = {}", s);
+    for (i, e) in s.chars().skip(1).enumerate() {
+        println!("i = {}, j = {:?}", e, s.chars().nth(i).unwrap());
+    }
 }
