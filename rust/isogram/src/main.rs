@@ -14,9 +14,8 @@ fn main() {
     chars.sort_by(|a, b| a.cmp(b));
     println!("test: {:?}", chars);
 
-    let s: String = String::from_iter(chars);
-    for (i, e) in s.chars().skip(1).enumerate() {
-        let c = s.chars().nth(i).unwrap();
+    for (i, e) in chars.iter().skip(1).enumerate() {
+        let c = chars.iter().nth(i).unwrap();
         println!("i = {}, j = {:?}", e, c);
         match e.cmp(&c) {
             Ordering::Equal => {
