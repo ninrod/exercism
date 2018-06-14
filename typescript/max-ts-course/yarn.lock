@@ -1461,6 +1461,10 @@ to-array@0.1.4:
   version "0.1.4"
   resolved "http://artifactory/artifactory/api/npm/npm/to-array/-/to-array-0.1.4.tgz#17e6c11f73dd4f3d74cda7a4ff3238e9ad9bf890"
 
+typescript@^2.9.2:
+  version "2.9.2"
+  resolved "http://artifactory/artifactory/api/npm/npm/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
+
 ua-parser-js@0.7.17:
   version "0.7.17"
   resolved "http://artifactory/artifactory/api/npm/npm/ua-parser-js/-/ua-parser-js-0.7.17.tgz#e9ec5f9498b9ec910e7ae3ac626a805c4d09ecac"
