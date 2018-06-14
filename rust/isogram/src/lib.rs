@@ -7,7 +7,7 @@ pub fn check(candidate: &str) -> bool {
     let mut chars: Vec<char> = candidate
         .chars()
         .filter(|c| c.is_alphabetic())
-        .map(|c| c.to_lowercase().next().unwrap())
+        .map(|c| c.to_ascii_lowercase())
         .collect();
     chars.sort_by(|a, b| a.cmp(b));
     for (i, e) in chars.iter().skip(1).enumerate() {
