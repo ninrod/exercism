@@ -37,11 +37,32 @@ p.age = 37;
 p.setProp("lol")
 console.log(p);
 
-//inheritance and constructors
+//inheritance, constructors, setters, getters, static methods
 class Filipe extends Person {
+    _awesomestr: string = "awesome"
+    static PI: number = 3.14
     constructor(age: number) {
         super("filipe", age)
     }
+    set awesome(s: string) {
+        if (s.length < 5) {
+            this._awesomestr = s
+        } else {
+            this._awesomestr = "overwritten awesome"
+        }
+    }
+    get awesome(): string {
+        return "awesome awesome"
+    }
+    static mult(a: number, b: number): number {
+        return a * b
+    }
 }
 let filipe = new Filipe(40)
-console.log(filipe);
+console.log(filipe)
+filipe.awesome = "cool"
+console.log(filipe)
+filipe.awesome = "really, really cool"
+console.log(filipe)
+console.log(Filipe.mult(2, 2))
+console.log(Filipe.PI)
