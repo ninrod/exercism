@@ -1,6 +1,6 @@
-import { logMyMessage, PI } from "./module"
+import * as log from "./module"
 import { circleArea } from "./math/circle"
-import { area } from "./math/rectangle"
+import area from "./math/rectangle"
 
 // type aliasing
 type Complex = {
@@ -72,8 +72,8 @@ console.log(filipe)
 console.log(Filipe.mult(2, 2))
 console.log(Filipe.PI)
 
-logMyMessage()
-console.log(PI);
+log.logMyMessage()
+console.log(log.PI);
 
 console.log(area(2, 2))
 console.log(circleArea(10))
