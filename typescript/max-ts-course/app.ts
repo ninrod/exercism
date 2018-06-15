@@ -1,3 +1,5 @@
+import { logMyMessage, PI } from "./module"
+
 // type aliasing
 type Complex = {
     num: number | string | number[],
@@ -67,3 +69,6 @@ filipe.awesome = "really, really cool"
 console.log(filipe)
 console.log(Filipe.mult(2, 2))
 console.log(Filipe.PI)
+
+logMyMessage()
+console.log(PI);
