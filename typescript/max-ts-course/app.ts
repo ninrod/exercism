@@ -84,5 +84,10 @@ function echo<T>(d: T): T {
     return d;
 }
 
-console.log(echo(27));
-console.log(echo("filipe"));
+function logAll<T>(args: T[]): void {
+    args.forEach(e => console.log(e))
+}
+
+console.log(echo(27))
+console.log(echo("filipe"))
+logAll(["filipe", "silva"])
