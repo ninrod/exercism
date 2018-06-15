@@ -37,11 +37,11 @@ p.age = 37;
 p.setProp("lol")
 console.log(p);
 
-//inheritance, constructors, setters, getters, static methods
+//inheritance, constructors, setters, getters, static methods, readonly props
 class Filipe extends Person {
     _awesomestr: string = "awesome"
     static PI: number = 3.14
-    constructor(age: number) {
+    constructor(age: number, public readonly score: number) {
         super("filipe", age)
     }
     set awesome(s: string) {
@@ -58,8 +58,9 @@ class Filipe extends Person {
         return a * b
     }
 }
-let filipe = new Filipe(40)
+let filipe = new Filipe(40, 100)
 console.log(filipe)
+
 filipe.awesome = "cool"
 console.log(filipe)
 filipe.awesome = "really, really cool"
