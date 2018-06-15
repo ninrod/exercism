@@ -77,3 +77,12 @@ console.log(log.PI);
 
 console.log(area(2, 2))
 console.log(circleArea(10))
+
+// generics
+
+function echo<T>(d: T): T {
+    return d;
+}
+
+console.log(echo(27));
+console.log(echo("filipe"));
