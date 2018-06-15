@@ -1,6 +1,13 @@
-enum colors {
-    green = 123,
-    red = 1
+type Complex = {
+    num: number,
+    a: string[]
 }
 
-console.log(`color is ${colors.green}`);
+let o: Complex = {
+    num: 2,
+    a: ["filipe", "silva"]
+}
+
+let { a: [, f] } = o;
+
+console.log(`f = ${f}`);
