@@ -36,3 +36,12 @@ const p: Person = new Person("filipe", 36)
 p.age = 37;
 p.setProp("lol")
 console.log(p);
+
+//inheritance and constructors
+class Filipe extends Person {
+    constructor(age: number) {
+        super("filipe", age)
+    }
+}
+let filipe = new Filipe(40)
+console.log(filipe);
