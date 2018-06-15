@@ -1,1 +1,2 @@
-exercism submit src/lib.rs
+deploy:
+	exercism submit src/lib.rs
