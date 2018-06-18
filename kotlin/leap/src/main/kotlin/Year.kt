@@ -2,7 +2,7 @@
 //   except every year that is evenly divisible by 100
 //     unless the year is also evenly divisible by 400
 
-Int.divisible(d: Int): Boolean = this % d == 0
+fun Int.divisible(d: Int): Boolean = this % d == 0
 
 data class Year (val year: Int) {
     val isLeap: Boolean get() {
@@ -12,6 +12,8 @@ data class Year (val year: Int) {
         val d100 = year.divisible(100)
         val d400 = year.divisible(400)
 
-        return d100 && !d400
+        if (d100 && d400) return true
+
+        return false
     }
 }
