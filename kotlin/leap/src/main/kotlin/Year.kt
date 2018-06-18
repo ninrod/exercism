@@ -17,3 +17,7 @@ data class Year (val year: Int) {
         return false
     }
 }
+
+fun main(args: Array<String>) {
+    println("oi")
+}

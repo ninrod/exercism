@@ -1,0 +1,43 @@
+buildscript {
+  ext.kotlin_version = '1.2.50'
+  repositories { maven { url "${artifactory_gradle}"}}
+  dependencies {
+    classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+compileKotlin { kotlinOptions.jvmTarget = "1.8" }
+compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
+
+kotlin { experimental { coroutines "enable" } }
+
+mainClassName="${main_class}"
+
+//Repositorio virtual com inclusão do repositorio do ktor
+repositories { maven { url "${artifactory_gradle}" } }
+
+dependencies {
+  compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  testCompile 'junit:junit:4.12'
+  testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+}
+
+//Roda testes
+test {
+  testLogging {
+    exceptionFormat = 'full'
+    events = ["passed", "failed", "skipped"]
+  }
+}
+
+//Cria o Uber jar
+jar {
+    manifest { attributes 'Main-Class': "${main_class}"}
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}
