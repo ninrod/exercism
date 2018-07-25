@@ -10,14 +10,6 @@ void tearDown(void)
 {
 }
 
-void test_filter(void)
-{
-  char s[] = "abc-def";
-  char* f = filter(s);
-  TEST_ASSERT_TRUE(strcmp("abcdef", f) == 0);
-  free(f);
-}
-
 void test_empty_string(void)
 {
    TEST_ASSERT_TRUE(is_isogram(""));
@@ -67,7 +59,6 @@ int main(void)
 {
    UnityBegin("test/test_isogram.c");
 
-   RUN_TEST(test_filter);
    RUN_TEST(test_empty_string);
    RUN_TEST(test_lower_case_only);
    RUN_TEST(test_duplicated_letter);
