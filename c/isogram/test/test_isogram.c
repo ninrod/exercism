@@ -25,6 +25,11 @@ void test_duplicated_letter(void)
    TEST_ASSERT_FALSE(is_isogram("eleven"));
 }
 
+void test_duplicated_letter_from_end_of_alphabet(void)
+{
+   TEST_ASSERT_FALSE(is_isogram("zzyzx"));
+}
+
 void test_longest_known_isogram(void)
 {
    TEST_ASSERT_TRUE(is_isogram("subdermatoglyphic"));
@@ -62,12 +67,13 @@ int main(void)
    RUN_TEST(test_empty_string);
    RUN_TEST(test_lower_case_only);
    RUN_TEST(test_duplicated_letter);
+   RUN_TEST(test_duplicated_letter_from_end_of_alphabet);
    RUN_TEST(test_longest_known_isogram);
+   RUN_TEST(test_duplicated_letter_mixed_case);
    RUN_TEST(test_non_letter_char);
    RUN_TEST(test_duplicated_non_letter_char);
    RUN_TEST(test_multiple_whitespace);
    RUN_TEST(test_duplicated_letter_within_word);
-   RUN_TEST(test_duplicated_letter_mixed_case);
 
    UnityEnd();
    return 0;
