@@ -6,12 +6,10 @@
 bool is_isogram(const char phrase[]) {
   int hm[26] = {0};
   while (*phrase != '\0') {
-    if (isalpha(*phrase)) {
-      int s = tolower(*phrase) - 'a';
-      if ((hm[s] += 1) > 1)
+    if (isalpha(*phrase))
+      if ((hm[tolower(*phrase) - 'a'] += 1) > 1)
         return false;
-    }
-    ++phrase;
+    phrase++;
   }
   return true;
 }
