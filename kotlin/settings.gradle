@@ -2,3 +2,4 @@ rootProject.name = 'exercism'
 
 include 'hello-world'
 include 'two-fer'
+include 'hamming'
