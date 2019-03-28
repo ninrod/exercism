@@ -65,7 +65,8 @@ allprojects {
       testCompile(deps.junit.api)
       testCompile(deps.junit.jupiter)
       testCompile(deps.kluent)
-      testCompile(deps.junit.vintage)
+
+      testRuntimeOnly(deps.junit.vintage)
       testRuntimeOnly(deps.junit.engine)
   }
 
