@@ -1,11 +1,11 @@
-import org.junit.Test
-import kotlin.test.assertEquals
+import org.junit.jupiter.api.Test
+import org.amshove.kluent.`should be equal to`
 
 class HelloWorldTest {
 
     @Test
     fun helloWorldTest() {
-        assertEquals("Hello, World!", hello())
+        hello() `should be equal to`  "Hello, World!"
     }
 
 }

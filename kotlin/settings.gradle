@@ -1,0 +1,4 @@
+rootProject.name = 'exercism'
+
+include 'hello-world'
+include 'two-fer'

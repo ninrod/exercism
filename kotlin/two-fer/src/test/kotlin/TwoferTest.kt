@@ -1,30 +1,26 @@
-import org.junit.Ignore
-import org.junit.Test
-import kotlin.test.assertEquals
+import org.junit.jupiter.api.Test
+import org.amshove.kluent.`should be equal to`
 
 class TwoferTest {
 
     @Test
     fun noNameGiven() {
-        assertEquals("One for you, one for me.", twofer())
+        twofer() `should be equal to` "One for you, one for me."
     }
 
     @Test
-    @Ignore
     fun aNameGiven() {
-        assertEquals("One for Alice, one for me.", twofer("Alice"))
+        twofer("Alice") `should be equal to` "One for Alice, one for me."
     }
 
     @Test
-    @Ignore
     fun anotherNameGiven() {
-        assertEquals("One for Bob, one for me.", twofer("Bob"))
+        "One for Bob, one for me." `should be equal to`  twofer("Bob")
     }
 
     @Test
-    @Ignore
     fun emptyStringGiven() {
-        assertEquals("One for , one for me.", twofer(""))
+        "One for , one for me." `should be equal to`  twofer("")
     }
 
 }
