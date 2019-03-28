@@ -1,7 +1,7 @@
-import org.amshove.kluent.`should be equal to`
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertThrows
+import org.amshove.kluent.`should be equal to`
 
+import org.junit.jupiter.api.assertThrows
 
 class HammingTest {
 

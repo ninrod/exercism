@@ -64,9 +64,15 @@ allprojects {
 
       testCompile(deps.junit.api)
       testCompile(deps.junit.jupiter)
-      testCompile(deps.kluent)
 
-      testRuntimeOnly(deps.junit.vintage)
+        testCompile(deps.kluent){
+            exclude group: 'junit'
+        }
+
+      testRuntimeOnly(deps.junit.vintage) {
+            exclude group: 'junit'
+        }
+
       testRuntimeOnly(deps.junit.engine)
   }
 
