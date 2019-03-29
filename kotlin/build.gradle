@@ -69,9 +69,7 @@ allprojects {
       exclude group: 'junit'
     }
 
-    testRuntimeOnly(deps.junit.vintage) {
-      exclude group: 'junit'
-    }
+    testRuntimeOnly(deps.junit.vintage)
 
     testRuntimeOnly(deps.junit.engine)
   }
