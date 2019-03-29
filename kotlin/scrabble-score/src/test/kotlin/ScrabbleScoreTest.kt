@@ -1,32 +1,26 @@
-import org.junit.Test
-import org.junit.runner.RunWith
-import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
+import org.amshove.kluent.*
+import org.junit.jupiter.api.Test
 
-@RunWith(Parameterized::class)
-class ScrabbleScoreTest(val input: String, val expectedOutput: Int) {
-
-    companion object {
-        @JvmStatic
-        @Parameterized.Parameters(name = "{index}: scoreWord({0})={1}")
-        fun data() = listOf(
-                arrayOf("a", 1),
-                arrayOf("A", 1),
-                arrayOf("f", 4),
-                arrayOf("at", 2),
-                arrayOf("zoo", 12),
-                arrayOf("street", 6),
-                arrayOf("quirky", 22),
-                arrayOf("OxyphenButazone", 41),
-                arrayOf("pinata", 8),
-                arrayOf("", 0),
-                arrayOf("abcdefghijklmnopqrstuvwxyz", 87)
-        )
+class ScrabbleScoreTest {
+    @Test
+    fun `palavras curtas`() {
+        ScrabbleScore.scoreWord("a") `should be equal to` 1
+        ScrabbleScore.scoreWord("f") `should be equal to` 4
+        ScrabbleScore.scoreWord("at") `should be equal to` 2
+        ScrabbleScore.scoreWord("zoo") `should be equal to` 12
+        ScrabbleScore.scoreWord("") `should be equal to` 0
     }
 
     @Test
-    fun test() {
-        assertEquals(expectedOutput, ScrabbleScore.scoreWord(input))
+    fun `palavras medias`() {
+        ScrabbleScore.scoreWord("street") `should be equal to` 6
+        ScrabbleScore.scoreWord("quirky") `should be equal to` 22
+        ScrabbleScore.scoreWord("pinata") `should be equal to` 8
     }
 
+    @Test
+    fun `palavras grandes`() {
+        ScrabbleScore.scoreWord("abcdefghijklmnopqrstuvwxyz") `should be equal to`  87
+        ScrabbleScore.scoreWord("OxyphenButazone") `should be equal to` 41
+    }
 }
