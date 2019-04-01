@@ -1,51 +1,50 @@
-import org.junit.Test
-import kotlin.test.assertEquals
+import org.amshove.kluent.`should be equal to`
+import org.junit.jupiter.api.Test
 
 class SquaresTest {
-
     @Test
     fun squareOfSum1() {
-        assertEquals(1, Squares(1).squareOfSum())
+        1 `should be equal to`  Squares(1).squareOfSum()
     }
 
     @Test
     fun squareOfSum5() {
-        assertEquals(225, Squares(5).squareOfSum())
+        225 `should be equal to`  Squares(5).squareOfSum()
     }
 
     @Test
     fun squareOfSum100() {
-        assertEquals(25502500, Squares(100).squareOfSum())
+        25502500 `should be equal to`  Squares(100).squareOfSum()
     }
 
     @Test
     fun sumOfSquares1() {
-        assertEquals(1, Squares(1).sumOfSquares())
+        1 `should be equal to`  Squares(1).sumOfSquares()
     }
 
     @Test
     fun sumOfSquares5() {
-        assertEquals(55, Squares(5).sumOfSquares())
+        55 `should be equal to`  Squares(5).sumOfSquares()
     }
 
     @Test
     fun sumOfSquares100() {
-        assertEquals(338350, Squares(100).sumOfSquares())
+        338350 `should be equal to`   Squares(100).sumOfSquares()
     }
 
     @Test
     fun differenceOfSquares1() {
-        assertEquals(0, Squares(1).difference())
+        0 `should be equal to`  Squares(1).difference()
     }
 
     @Test
     fun differenceOfSquares5() {
-        assertEquals(170, Squares(5).difference())
+        170 `should be equal to`  Squares(5).difference()
     }
 
     @Test
     fun differenceOfSquares100() {
-        assertEquals(25164150, Squares(100).difference())
+        25164150 `should be equal to`  Squares(100).difference()
     }
 
 }
