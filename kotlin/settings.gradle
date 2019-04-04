@@ -1,6 +1,7 @@
 rootProject.name = 'exercism'
 
 include 'acronym'
+include 'atbash-cipher'
 include 'difference-of-squares'
 include 'gigasecond'
 include 'hamming'

@@ -1,55 +1,27 @@
-import org.junit.Test
-import org.junit.experimental.runners.Enclosed
-import org.junit.runner.RunWith
-import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
+import org.amshove.kluent.`should be equal to`
+import org.junit.jupiter.api.Test
 
-@RunWith(Enclosed::class)
 class AtbashTest {
+    private fun String.encode() = Atbash.encode(this)
+    private fun String.decode() = Atbash.decode(this)
 
-    @RunWith(Parameterized::class)
-    class EncodeTest(val input: String, val expectedOutput: String) {
-
-        companion object {
-            @JvmStatic
-            @Parameterized.Parameters
-            fun data() = listOf(
-                    arrayOf("yes", "bvh"),
-                    arrayOf("no", "ml"),
-                    arrayOf("OMG", "lnt"),
-                    arrayOf("O M G", "lnt"),
-                    arrayOf("mindblowingly", "nrmwy oldrm tob"),
-                    arrayOf("Testing,1 2 3, testing.", "gvhgr mt123 gvhgr mt"),
-                    arrayOf("Truth is fiction.", "gifgs rhurx grlm"),
-                    arrayOf("The quick brown fox jumps over the lazy dog.", "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt")
-            )
-        }
-
-        @Test
-        fun test() {
-            assertEquals(expectedOutput, Atbash.encode(input))
-        }
-
+    @Test
+    fun encodedTest() {
+        "yes".encode() `should be equal to` "bvh"
+        "no".encode() `should be equal to`  "ml"
+        "OMG".encode() `should be equal to` "lnt"
+        "O M G".encode() `should be equal to` "lnt"
+        "mindblowingly".encode() `should be equal to` "nrmwy oldrm tob"
+        "Testing,1 2 3, testing.".encode() `should be equal to` "gvhgr mt123 gvhgr mt"
+        "Truth is fiction.".encode() `should be equal to` "gifgs rhurx grlm"
+        "The quick brown fox jumps over the lazy dog.".encode() `should be equal to` "gsvjf rxpyi ldmul cqfnk hlevi gsvoz abwlt"
     }
 
-    @RunWith(Parameterized::class)
-    class DecodeTest(val input: String, val expectedOutput: String) {
-
-        companion object {
-            @JvmStatic
-            @Parameterized.Parameters
-            fun data() = listOf(
-                    arrayOf("vcvix rhn", "exercism"),
-                    arrayOf("zmlyh gzxov rhlug vmzhg vkkrm thglm v", "anobstacleisoftenasteppingstone"),
-                    arrayOf("gvhgr mt123 gvhgr mt", "testing123testing")
-            )
-        }
-
-        @Test
-        fun test() {
-            assertEquals(expectedOutput, Atbash.decode(input))
-        }
-
+    @Test
+    fun decodeTest() {
+        "vcvix rhn".decode() `should be equal to` "exercism"
+        "zmlyh gzxov rhlug vmzhg vkkrm thglm v".decode() `should be equal to` "anobstacleisoftenasteppingstone"
+        "gvhgr mt123 gvhgr mt".decode() `should be equal to` "testing123testing"
     }
 
 }
