@@ -1,53 +1,44 @@
-import org.junit.Rule
-import org.junit.Test
-import org.junit.rules.ExpectedException
-import kotlin.test.assertEquals
+import org.amshove.kluent.`should be equal to`
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class CollatzCalculatorTest {
-
-    @Rule
-    @JvmField
-    var expectedException: ExpectedException = ExpectedException.none()
-
     @Test
     fun testZeroStepsRequiredWhenStartingFrom1() {
-        assertEquals(0, CollatzCalculator.computeStepCount(1))
+        CollatzCalculator.computeStepCount(1) `should be equal to` 0
     }
 
 
     @Test
     fun testCorrectNumberOfStepsWhenAllStepsAreDivisions() {
-        assertEquals(4, CollatzCalculator.computeStepCount(16))
+        CollatzCalculator.computeStepCount(16) `should be equal to`  4
     }
 
 
     @Test
     fun testCorrectNumberOfStepsWhenBothStepTypesAreNeeded() {
-        assertEquals(9, CollatzCalculator.computeStepCount(12))
+         CollatzCalculator.computeStepCount(12) `should be equal to` 9
     }
 
 
     @Test
     fun testAVeryLargeInput() {
-        assertEquals(152, CollatzCalculator.computeStepCount(1000000))
+        CollatzCalculator.computeStepCount(1000000) `should be equal to`  152
     }
 
 
     @Test
     fun testZeroIsConsideredInvalidInput() {
-        expectedException.expect(IllegalArgumentException::class.java)
-        expectedException.expectMessage("Only natural numbers are allowed")
-
-        CollatzCalculator.computeStepCount(0)
+        assertThrows<IllegalArgumentException>("should throw illegalArgument") {
+            CollatzCalculator.computeStepCount(0)
+        }.message?.`should be equal to`("Only natural numbers are allowed")
     }
 
 
     @Test
     fun testNegativeIntegerIsConsideredInvalidInput() {
-        expectedException.expect(IllegalArgumentException::class.java)
-        expectedException.expectMessage("Only natural numbers are allowed")
-
-        CollatzCalculator.computeStepCount(-15)
+        assertThrows<IllegalArgumentException>("should throw illegalArgument") {
+            CollatzCalculator.computeStepCount(-15)
+        }.message?.`should be equal to`("Only natural numbers are allowed")
     }
-
 }

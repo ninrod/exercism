@@ -2,7 +2,7 @@ object Acronym {
    fun generate(f: String) = f.split(' ', '-').map{ it[0].toUpperCase() }.joinToString("")
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val map = mapOf(
             1 to "Filipe",
             2 to "Evelize",
