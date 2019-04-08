@@ -1,87 +1,68 @@
-import org.junit.Rule
-import org.junit.Test
-import org.junit.rules.ExpectedException
+import org.amshove.kluent.`should be equal to`
+import org.amshove.kluent.`should be`
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 import java.math.BigInteger
-import kotlin.test.assertEquals
 
 class BoardTest {
-
-    @Rule
-    @JvmField
-    var expectedException: ExpectedException = ExpectedException.none()
-
     @Test
     fun testSquare1ContainsCorrectNumberOfGrains() {
-        assertEquals(BigInteger.ONE, Board.getGrainCountForSquare(1))
+        Board.getGrainCountForSquare(1).toInt() `should be equal to` BigInteger.ONE.toInt()
     }
-
 
     @Test
     fun testSquare2ContainsCorrectNumberOfGrains() {
-        assertEquals(BigInteger.valueOf(2), Board.getGrainCountForSquare(2))
+        Board.getGrainCountForSquare(2).toInt() `should be equal to`  BigInteger.valueOf(2).toInt()
     }
-
 
     @Test
     fun testSquare3ContainsCorrectNumberOfGrains() {
-        assertEquals(BigInteger.valueOf(4), Board.getGrainCountForSquare(3))
+        Board.getGrainCountForSquare(3).toInt() `should be equal to` BigInteger.valueOf(4).toInt()
     }
-
 
     @Test
     fun testSquare4ContainsCorrectNumberOfGrains() {
-        assertEquals(BigInteger.valueOf(8), Board.getGrainCountForSquare(4))
+        Board.getGrainCountForSquare(4).toInt() `should be equal to` BigInteger.valueOf(8).toInt()
     }
-
 
     @Test
     fun testSquare16ContainsCorrectNumberOfGrains() {
-        assertEquals(BigInteger.valueOf(32768), Board.getGrainCountForSquare(16))
+        Board.getGrainCountForSquare(16) `should be`  BigInteger.valueOf(32768)
     }
-
 
     @Test
     fun testSquare32ContainsCorrectNumberOfGrains() {
-        assertEquals(BigInteger.valueOf(2147483648), Board.getGrainCountForSquare(32))
+        Board.getGrainCountForSquare(32) `should be` BigInteger.valueOf(2147483648)
     }
-
 
     @Test
     fun testSquare64ContainsCorrectNumberOfGrains() {
-        assertEquals(BigInteger("9223372036854775808"), Board.getGrainCountForSquare(64))
+        Board.getGrainCountForSquare(64) `should be` BigInteger("9223372036854775808")
     }
-
 
     @Test
     fun testSquare0IsInvalid() {
-        expectedException.expect(IllegalArgumentException::class.java)
-        expectedException.expectMessage("Only integers between 1 and 64 (inclusive) are allowed")
-
-        Board.getGrainCountForSquare(0)
+        assertThrows<java.lang.IllegalArgumentException>("should throw IllegalArgumentEx") {
+            Board.getGrainCountForSquare(0)
+        }.message?.`should be equal to`("Only integers between 1 and 64 (inclusive) are allowed")
     }
-
 
     @Test
     fun testNegativeSquareIsInvalid() {
-        expectedException.expect(IllegalArgumentException::class.java)
-        expectedException.expectMessage("Only integers between 1 and 64 (inclusive) are allowed")
-
-        Board.getGrainCountForSquare(-1)
+        assertThrows<java.lang.IllegalArgumentException>("should throw IllegalArgumentEx") {
+            Board.getGrainCountForSquare(-1)
+        }.message?.`should be equal to`("Only integers between 1 and 64 (inclusive) are allowed")
     }
-
 
     @Test
     fun testSquareGreaterThan64IsInvalid() {
-        expectedException.expect(IllegalArgumentException::class.java)
-        expectedException.expectMessage("Only integers between 1 and 64 (inclusive) are allowed")
-
-        Board.getGrainCountForSquare(65)
+        assertThrows<java.lang.IllegalArgumentException>("should throw IllegalArgumentEx") {
+            Board.getGrainCountForSquare(65)
+        }.message?.`should be equal to`("Only integers between 1 and 64 (inclusive) are allowed")
     }
-
 
     @Test
     fun testBoardContainsCorrectNumberOfGrains() {
-        assertEquals(BigInteger("18446744073709551615"), Board.getTotalGrainCount())
+        Board.getTotalGrainCount() `should be`  BigInteger("18446744073709551615")
     }
-
 }
