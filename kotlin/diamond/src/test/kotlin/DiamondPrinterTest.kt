@@ -1,50 +1,49 @@
-import org.hamcrest.CoreMatchers.`is`
-import org.junit.Assert.assertThat
-import org.junit.Before
-import org.junit.Test
+import org.amshove.kluent.`should equal`
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class DiamondPrinterTest {
 
-    private lateinit var diamondPrinter: DiamondPrinter
+    private lateinit var printer: DiamondPrinter
 
-    @Before
+    @BeforeEach
     fun setUp() {
-        diamondPrinter = DiamondPrinter()
+        printer = DiamondPrinter()
     }
 
     @Test
     fun testOneByOneDiamond() {
-        val output = diamondPrinter.printToList('A')
-        assertThat(output, `is`(listOf("A")))
+        printer.printToList('A') `should equal` (listOf("A"))
     }
 
 
     @Test
     fun testTwoByTwoDiamond() {
-        val output = diamondPrinter.printToList('B')
-        assertThat(output, `is`(listOf(
+        printer.printToList('B') `should equal`
+         (listOf(
                 " A ",
                 "B B",
-                " A ")))
+                " A "
+         ))
     }
 
 
     @Test
     fun testThreeByThreeDiamond() {
-        val output = diamondPrinter.printToList('C')
-        assertThat(output, `is`(listOf(
+        printer.printToList('C') `should equal`
+        (listOf(
                 "  A  ",
                 " B B ",
                 "C   C",
                 " B B ",
-                "  A  ")))
+                "  A  "))
     }
 
 
     @Test
     fun testFiveByFiveDiamond() {
-        val output = diamondPrinter.printToList('E')
-        assertThat(output, `is`(listOf(
+        printer.printToList('E') `should equal`
+                (listOf(
                 "    A    ",
                 "   B B   ",
                 "  C   C  ",
@@ -53,14 +52,14 @@ class DiamondPrinterTest {
                 " D     D ",
                 "  C   C  ",
                 "   B B   ",
-                "    A    ")))
+                "    A    "))
     }
 
 
     @Test
     fun testFullDiamond() {
-        val output = diamondPrinter.printToList('Z')
-        assertThat(output, `is`(listOf(
+        printer.printToList('Z') `should equal`
+        (listOf(
                 "                         A                         ",
                 "                        B B                        ",
                 "                       C   C                       ",
@@ -111,7 +110,6 @@ class DiamondPrinterTest {
                 "                      D     D                      ",
                 "                       C   C                       ",
                 "                        B B                        ",
-                "                         A                         ")))
+                "                         A                         "))
     }
-
 }
