@@ -1,5 +1,4 @@
 import org.amshove.kluent.`should be equal to`
-import org.amshove.kluent.`should be`
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.math.BigInteger
@@ -27,17 +26,22 @@ class BoardTest {
 
     @Test
     fun testSquare16ContainsCorrectNumberOfGrains() {
-        Board.getGrainCountForSquare(16) `should be`  BigInteger.valueOf(32768)
+        Board.getGrainCountForSquare(16).toInt() `should be equal to`  BigInteger.valueOf(32768).toInt()
     }
 
     @Test
     fun testSquare32ContainsCorrectNumberOfGrains() {
-        Board.getGrainCountForSquare(32) `should be` BigInteger.valueOf(2147483648)
+        Board.getGrainCountForSquare(32).toInt() `should be equal to` BigInteger.valueOf(2147483648).toInt()
     }
 
     @Test
     fun testSquare64ContainsCorrectNumberOfGrains() {
-        Board.getGrainCountForSquare(64) `should be` BigInteger("9223372036854775808")
+        Board.getGrainCountForSquare(64).toInt() `should be equal to` BigInteger("9223372036854775808").toInt()
+    }
+
+    @Test
+    fun testBoardContainsCorrectNumberOfGrains() {
+        Board.getTotalGrainCount().toInt() `should be equal to`  BigInteger("18446744073709551615").toInt()
     }
 
     @Test
@@ -61,8 +65,4 @@ class BoardTest {
         }.message?.`should be equal to`("Only integers between 1 and 64 (inclusive) are allowed")
     }
 
-    @Test
-    fun testBoardContainsCorrectNumberOfGrains() {
-        Board.getTotalGrainCount() `should be`  BigInteger("18446744073709551615")
-    }
 }
