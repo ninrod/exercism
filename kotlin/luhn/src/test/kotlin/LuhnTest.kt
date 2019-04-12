@@ -1,72 +1,70 @@
-import org.junit.Test
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+import org.amshove.kluent.shouldBeFalse
+import org.amshove.kluent.shouldBeTrue
+import org.junit.jupiter.api.Test
 
 class LuhnTest {
-
     @Test
     fun singleDigitStringsCannotBeValid() {
-        assertFalse(Luhn.isValid("1"))
+        Luhn.isValid("1").shouldBeFalse()
     }
 
     @Test
     fun singleZeroIsInvalid() {
-        assertFalse(Luhn.isValid("0"))
+        Luhn.isValid("0").shouldBeFalse()
     }
 
     @Test
     fun simpleValidSINThatRemainsValidIfReversed() {
-        assertTrue(Luhn.isValid("059"))
+        Luhn.isValid("059").shouldBeTrue()
     }
 
     @Test
     fun simpleValidSINThatBecomesInvalidIfReversed() {
-        assertTrue(Luhn.isValid("59"))
+        Luhn.isValid("59").shouldBeTrue()
     }
 
     @Test
     fun validCanadianSIN() {
-        assertTrue(Luhn.isValid("055 444 285"))
+        Luhn.isValid("055 444 285").shouldBeTrue()
     }
 
     @Test
     fun invalidCanadianSIN() {
-        assertFalse(Luhn.isValid("055 444 286"))
+        Luhn.isValid("055 444 286").shouldBeFalse()
     }
 
     @Test
     fun invalidCreditCard() {
-        assertFalse(Luhn.isValid("8273 1232 7352 0569"))
+        Luhn.isValid("8273 1232 7352 0569").shouldBeFalse()
     }
 
     @Test
     fun validStringsWithNonDigitIncludedBecomeInvalid() {
-        assertFalse(Luhn.isValid("055a 444 285"))
+        Luhn.isValid("055a 444 285").shouldBeFalse()
     }
 
     @Test
     fun validStringsWithPunctuationIncludedBecomeInvalid() {
-        assertFalse(Luhn.isValid("055-444-285"))
+        Luhn.isValid("055-444-285").shouldBeFalse()
     }
 
     @Test
     fun validStringsWithSymbolsIncludedBecomeInvalid() {
-        assertFalse(Luhn.isValid("055£ 444$ 285"))
+        Luhn.isValid("055£ 444$ 285").shouldBeFalse()
     }
 
     @Test
     fun singleZeroWithSpaceIsInvalid() {
-        assertFalse(Luhn.isValid(" 0"))
+        Luhn.isValid(" 0").shouldBeFalse()
     }
 
     @Test
     fun moreThanSingleZeroIsValid() {
-        assertTrue(Luhn.isValid("0000 0"))
+        Luhn.isValid("0000 0").shouldBeTrue()
     }
 
     @Test
     fun inputDigit9IsCorrectlyConvertedToOutputDigit9() {
-        assertTrue(Luhn.isValid("091"))
+        Luhn.isValid("091").shouldBeTrue()
     }
-
 }
