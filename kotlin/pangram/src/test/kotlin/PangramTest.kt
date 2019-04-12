@@ -1,56 +1,56 @@
-import org.junit.Test
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+import org.amshove.kluent.shouldBeFalse
+import org.amshove.kluent.shouldBeTrue
+import org.junit.jupiter.api.Test
 
 class PangramTest {
 
     @Test
     fun emptySentence() {
-        assertFalse(Pangram.isPangram(""))
+        Pangram.isPangram("").shouldBeFalse()
     }
 
     @Test
     fun perfectLowercasePangram() {
-        assertTrue(Pangram.isPangram("abcdefghijklmnopqrstuvwxyz"))
+        Pangram.isPangram("abcdefghijklmnopqrstuvwxyz").shouldBeTrue()
     }
 
     @Test
     fun lowercasePangram() {
-        assertTrue(Pangram.isPangram("the quick brown fox jumps over the lazy dog"))
+        Pangram.isPangram("the quick brown fox jumps over the lazy dog").shouldBeTrue()
     }
 
     @Test
     fun missingCharacterX() {
-        assertFalse(Pangram.isPangram("a quick movement of the enemy will jeopardize five gunboats"))
+        Pangram.isPangram("a quick movement of the enemy will jeopardize five gunboats").shouldBeFalse()
     }
 
     @Test
     fun anotherMissingCharacterX() {
-        assertFalse(Pangram.isPangram("five boxing wizards jump quickly at it"))
+        Pangram.isPangram("five boxing wizards jump quickly at it").shouldBeFalse()
     }
 
     @Test
     fun withUnderscores() {
-        assertTrue(Pangram.isPangram("the_quick_brown_fox_jumps_over_the_lazy_dog"))
+        Pangram.isPangram("the_quick_brown_fox_jumps_over_the_lazy_dog").shouldBeTrue()
     }
 
     @Test
     fun withNumbers() {
-        assertTrue(Pangram.isPangram("the 1 quick brown fox jumps over the 2 lazy dogs"))
+        Pangram.isPangram("the 1 quick brown fox jumps over the 2 lazy dogs").shouldBeTrue()
     }
 
     @Test
     fun missingLettersReplacedByNumbers() {
-        assertFalse(Pangram.isPangram("7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog"))
+        Pangram.isPangram("7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog").shouldBeFalse()
     }
 
     @Test
     fun mixedCaseAndPunctuation() {
-        assertTrue(Pangram.isPangram("\"Five quacking Zephyrs jolt my wax bed.\""))
+        Pangram.isPangram("\"Five quacking Zephyrs jolt my wax bed.\"").shouldBeTrue()
     }
 
     @Test
     fun mixedCaseDuplicatedCharacters() {
-        assertFalse(Pangram.isPangram("the quick brown fox jumps over with lazy FX"))
+        Pangram.isPangram("the quick brown fox jumps over with lazy FX").shouldBeFalse()
     }
 }
