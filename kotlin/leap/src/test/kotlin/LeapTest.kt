@@ -1,22 +1,22 @@
-import org.junit.Test
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+import org.amshove.kluent.shouldBeFalse
+import org.amshove.kluent.shouldBeTrue
+import org.junit.jupiter.api.Test
 
 class LeapTest {
     @Test
     fun yearNotDivisibleBy4() {
-        assertFalse(Year(2015).isLeap)
+        Year(2015).isLeap.shouldBeFalse()
     }
     @Test
     fun yearDivisibleBy4NotDivisibleBy100() {
-        assertTrue(Year(1996).isLeap)
+        Year(1996).isLeap.shouldBeTrue()
     }
     @Test
     fun yearDivisibleBy100NotDivisibleBy400() {
-        assertFalse(Year(2100).isLeap)
+        Year(2100).isLeap.shouldBeFalse()
     }
     @Test
     fun yearDivisibleBy400() {
-        assertTrue(Year(2000).isLeap)
+        Year(2000).isLeap.shouldBeTrue()
     }
 }
