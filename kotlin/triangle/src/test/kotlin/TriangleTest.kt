@@ -1,106 +1,97 @@
-import org.junit.Test
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
+import org.amshove.kluent.shouldBeFalse
+import org.amshove.kluent.shouldBeTrue
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class TriangleTest {
     @Test
     fun equilateralIfAllSidesAreEqual() {
-        assertTrue(Triangle(2, 2, 2).isEquilateral)
+        Triangle(2, 2, 2).isEquilateral.shouldBeTrue()
     }
-
 
     @Test
     fun notEquilateralIfAnySideIsUnequal() {
-        assertFalse(Triangle(2, 3, 2).isEquilateral)
+        Triangle(2, 3, 2).isEquilateral.shouldBeFalse()
     }
-
 
     @Test
     fun notEquilateralIfNoSidesAreEqual() {
-        assertFalse(Triangle(5, 4, 6).isEquilateral)
+        Triangle(5, 4, 6).isEquilateral.shouldBeFalse()
     }
 
-
-    @Test(expected = IllegalArgumentException::class)
+    @Test
     fun allZeroSidesAreIllegalSoNotEquilateral() {
-        assertFalse(Triangle(0, 0, 0).isEquilateral)
+        assertThrows<java.lang.IllegalArgumentException> {
+            Triangle(0, 0, 0).isEquilateral
+        }
     }
-
 
     @Test
     fun equilateralSidesMayBeFloatingPoint() {
-        assertTrue(Triangle(0.5, 0.5, 0.5).isEquilateral)
+        Triangle(0.5, 0.5, 0.5).isEquilateral.shouldBeTrue()
     }
-
 
     @Test
     fun isoscelesIfLastTwoSidesAreEqual() {
-        assertTrue(Triangle(3, 4, 4).isIsosceles)
+        Triangle(3, 4, 4).isIsosceles.shouldBeTrue()
     }
-
 
     @Test
     fun isoscelesIfFirstTwoSidesAreEqual() {
-        assertTrue(Triangle(4, 4, 3).isIsosceles)
+        Triangle(4, 4, 3).isIsosceles.shouldBeTrue()
     }
-
 
     @Test
     fun isoscelesIfFirstAndLastSidesAreEqual() {
-        assertTrue(Triangle(4, 3, 4).isIsosceles)
+        Triangle(4, 3, 4).isIsosceles.shouldBeTrue()
     }
-
 
     @Test
     fun equilateralIsAlsoIsosceles() {
-        assertTrue(Triangle(4, 4, 4).isIsosceles)
+        Triangle(4, 4, 4).isIsosceles.shouldBeTrue()
     }
-
 
     @Test
     fun notIsoscelesIfNoSidesAreEqual() {
-        assertFalse(Triangle(2, 3, 4).isIsosceles)
+        Triangle(2, 3, 4).isIsosceles.shouldBeFalse()
     }
 
-
-    @Test(expected = IllegalArgumentException::class)
+    @Test
     fun sidesViolateTriangleInequalitySoNotIsosceles() {
-        assertFalse(Triangle(1, 1, 3).isIsosceles)
+        assertThrows<java.lang.IllegalArgumentException> {
+            Triangle(1, 1, 3).isIsosceles
+        }
     }
-
 
     @Test
     fun isoscelesSidesMayBeFloatingPoint() {
-        assertTrue(Triangle(0.5, 0.4, 0.5).isIsosceles)
+        Triangle(0.5, 0.4, 0.5).isIsosceles.shouldBeTrue()
     }
-
 
     @Test
     fun scaleneIfNoSidesAreEqual() {
-        assertTrue(Triangle(5, 4, 6).isScalene)
+        Triangle(5, 4, 6).isScalene.shouldBeTrue()
     }
-
 
     @Test
     fun notScaleneIfAllSidesAreEqual() {
-        assertFalse(Triangle(4, 4, 4).isScalene)
+        Triangle(4, 4, 4).isScalene.shouldBeFalse()
     }
-
 
     @Test
     fun notScaleneIfTwoSidesAreEqual() {
-        assertFalse(Triangle(4, 4, 3).isScalene)
+        Triangle(4, 4, 3).isScalene.shouldBeFalse()
     }
 
-
-    @Test(expected = IllegalArgumentException::class)
+    @Test
     fun sidesViolateTriangleInequalitySoNotScalene() {
-        assertFalse(Triangle(7, 3, 2).isScalene)
+        assertThrows<java.lang.IllegalArgumentException> {
+            Triangle(7, 3, 2).isScalene
+        }
     }
-
 
     @Test
     fun scaleneSidesMayBeFloatingPoint() {
-        assertTrue(Triangle(0.5, 0.4, 0.6).isScalene)
+        Triangle(0.5, 0.4, 0.6).isScalene.shouldBeTrue()
     }
 }
