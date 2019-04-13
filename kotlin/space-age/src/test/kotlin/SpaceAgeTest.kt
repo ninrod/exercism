@@ -1,61 +1,44 @@
-import org.junit.Test
-import kotlin.test.assertEquals
+import org.amshove.kluent.`should be equal to`
+import org.junit.jupiter.api.Test
 
 class SpaceAgeTest {
-
     @Test
     fun ageOnEarth() {
-        val age = SpaceAge(1000000000)
-
-        assertEquals(31.69, age.onEarth())
+        31.69 `should be equal to` SpaceAge(1000000000).onEarth()
     }
 
     @Test
     fun ageOnMercury() {
-        val age = SpaceAge(2134835688)
-
-        assertEquals(280.88, age.onMercury())
+        280.88 `should be equal to` SpaceAge(2134835688).onMercury()
     }
 
     @Test
     fun ageOnVenus() {
-        val age = SpaceAge(189839836)
-
-        assertEquals(9.79, age.onVenus())
+        9.79 `should be equal to` SpaceAge(189839836).onVenus()
     }
 
     @Test
     fun ageOnMars() {
-        val age = SpaceAge(2329871239L)
-
-        assertEquals(39.25, age.onMars())
+        39.25 `should be equal to` SpaceAge(2329871239L).onMars()
     }
 
     @Test
     fun ageOnJupiter() {
-        val age = SpaceAge(901876382)
-
-        assertEquals(2.41, age.onJupiter())
+        2.41 `should be equal to` SpaceAge(901876382).onJupiter()
     }
 
     @Test
     fun ageOnSaturn() {
-        val age = SpaceAge(3000000000L)
-
-        assertEquals(3.23, age.onSaturn())
+        3.23 `should be equal to` SpaceAge(3000000000L).onSaturn()
     }
 
     @Test
     fun ageOnUranus() {
-        val age = SpaceAge(3210123456L)
-
-        assertEquals(1.21, age.onUranus())
+        1.21 `should be equal to` SpaceAge(3210123456L).onUranus()
     }
 
     @Test
     fun ageOnNeptune() {
-        val age = SpaceAge(8210123456L)
-
-        assertEquals(1.58, age.onNeptune())
+        1.58 `should be equal to` SpaceAge(8210123456L).onNeptune()
     }
 }
