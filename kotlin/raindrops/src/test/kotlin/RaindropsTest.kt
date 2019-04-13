@@ -1,40 +1,26 @@
-import org.junit.Test
-import org.junit.Ignore
-import org.junit.runner.RunWith
-import org.junit.runners.Parameterized
-import kotlin.test.assertEquals
+import org.amshove.kluent.`should be equal to`
+import org.junit.jupiter.api.Test
 
-@RunWith(Parameterized::class)
-class RaindropsTest(val input: Int, val expectedOutput: String) {
-
-    companion object {
-        @JvmStatic
-        @Parameterized.Parameters(name = "{index}: raindrops({0})={1}")
-        fun data() = listOf(
-                arrayOf(   1, "1"),
-                arrayOf(   3, "Pling"),
-                arrayOf(   5, "Plang"),
-                arrayOf(   7, "Plong"),
-                arrayOf(   6, "Pling"),
-                arrayOf(   8, "8"),
-                arrayOf(   9, "Pling"),
-                arrayOf(  10, "Plang"),
-                arrayOf(  14, "Plong"),
-                arrayOf(  15, "PlingPlang"),
-                arrayOf(  21, "PlingPlong"),
-                arrayOf(  25, "Plang"),
-                arrayOf(  27, "Pling"),
-                arrayOf(  35, "PlangPlong"),
-                arrayOf(  49, "Plong"),
-                arrayOf(  52, "52"),
-                arrayOf( 105, "PlingPlangPlong"),
-                arrayOf(3125, "Plang")
-        )
-    }
-
+class RaindropsTest {
     @Test
     fun test() {
-        assertEquals(expectedOutput, Raindrops.convert(input))
+        Raindrops.convert(1) `should be equal to`  "1"
+        Raindrops.convert(3) `should be equal to` "Pling"
+        Raindrops.convert(5) `should be equal to` "Plang"
+        Raindrops.convert(7) `should be equal to` "Plong"
+        Raindrops.convert(6) `should be equal to` "Pling"
+        Raindrops.convert(8) `should be equal to` "8"
+        Raindrops.convert(9) `should be equal to` "Pling"
+        Raindrops.convert(10) `should be equal to` "Plang"
+        Raindrops.convert(14) `should be equal to` "Plong"
+        Raindrops.convert(15) `should be equal to` "PlingPlang"
+        Raindrops.convert(21) `should be equal to` "PlingPlong"
+        Raindrops.convert(25) `should be equal to` "Plang"
+        Raindrops.convert(27) `should be equal to` "Pling"
+        Raindrops.convert(35) `should be equal to` "PlangPlong"
+        Raindrops.convert(49) `should be equal to` "Plong"
+        Raindrops.convert(52) `should be equal to` "52"
+        Raindrops.convert(105) `should be equal to` "PlingPlangPlong"
+        Raindrops.convert(3125) `should be equal to` "Plang"
     }
-
 }
