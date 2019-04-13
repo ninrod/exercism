@@ -1,71 +1,49 @@
-import org.junit.Test
-import java.util.Collections.emptySet
-import kotlin.test.assertEquals
+import org.amshove.kluent.`should equal`
+import org.junit.jupiter.api.Test
 
 class MatrixTest {
-
     @Test
     fun testCanIdentifySingleSaddlePoint() {
-        val matrix = Matrix(listOf(
+        Matrix(listOf(
             listOf(9, 8, 7),
             listOf(5, 3, 2),
             listOf(6, 6, 7)
-        ))
-
-        val expectedSaddlePoints = setOf(MatrixCoordinate(1, 0))
-
-        assertEquals(expectedSaddlePoints, matrix.saddlePoints)
+        )).saddlePoints `should equal` setOf(MatrixCoordinate(1, 0))
     }
 
     @Test
     fun testCanIdentifyThatEmptyMatrixHasNoSaddlePoints() {
-        val matrix = Matrix(listOf(emptyList()))
-
-        val expectedSaddlePoints = emptySet<MatrixCoordinate>()
-
-        assertEquals(expectedSaddlePoints, matrix.saddlePoints)
+        Matrix(listOf(emptyList())).saddlePoints `should equal` emptySet()
     }
 
     @Test
     fun testCanIdentifyLackOfSaddlePointsWhenThereAreNone() {
-        val matrix = Matrix(listOf(
+        Matrix(listOf(
             listOf(1, 2, 3),
             listOf(3, 1, 2),
             listOf(2, 3, 1)
-        ))
-
-        val expectedSaddlePoints = emptySet<MatrixCoordinate>()
-
-        assertEquals(expectedSaddlePoints, matrix.saddlePoints)
+        )).saddlePoints `should equal` emptySet()
     }
 
     @Test
     fun testCanIdentifyMultipleSaddlePoints() {
-        val matrix = Matrix(listOf(
+        Matrix(listOf(
             listOf(4, 5, 4),
             listOf(3, 5, 5),
             listOf(1, 5, 4)
-        ))
-
-        val expectedSaddlePoints = setOf(
+        )).saddlePoints `should equal` setOf(
             MatrixCoordinate(0, 1),
             MatrixCoordinate(1, 1),
             MatrixCoordinate(2, 1)
         )
-
-        assertEquals(expectedSaddlePoints, matrix.saddlePoints)
     }
 
     @Test
     fun testCanIdentifySaddlePointInBottomRightCorner() {
-        val matrix = Matrix(listOf(
+        Matrix(listOf(
             listOf(8, 7, 9),
             listOf(6, 7, 6),
             listOf(3, 2, 5)
-        ))
-
-        val expectedSaddlePoints = setOf(MatrixCoordinate(2, 2))
-
-        assertEquals(expectedSaddlePoints, matrix.saddlePoints)
+        )).saddlePoints `should equal` setOf(MatrixCoordinate(2, 2))
     }
 }
