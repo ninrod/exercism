@@ -56,13 +56,4 @@ object DiamondPrinter {
 
         return a
     }
-    fun prettyPrint(a: List<String>) {
-        for (i in a)
-            println(i)
-    }
-}
-
-fun main() {
-    val s = DiamondPrinter.printToList('c')
-    DiamondPrinter.prettyPrint(s)
 }
