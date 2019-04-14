@@ -1,21 +1,16 @@
 import org.amshove.kluent.`should equal`
-import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
-class DiamondPrinterTest {
+class DiamondDiamondPrinterTest {
 
-    private lateinit var printer: DiamondPrinter
-
-    @BeforeEach
-    fun setUp() {
-        printer = DiamondPrinter()
-    }
-
+    @Test
     fun testOneByOneDiamond() {
-        printer.printToList('A') `should equal` (listOf("A"))
+        DiamondPrinter.printToList('A') `should equal` (listOf("A"))
     }
 
+    @Test
     fun testTwoByTwoDiamond() {
-        printer.printToList('B') `should equal`
+        DiamondPrinter.printToList('B') `should equal`
          (listOf(
                 " A ",
                 "B B",
@@ -23,8 +18,9 @@ class DiamondPrinterTest {
          ))
     }
 
+    @Test
     fun testThreeByThreeDiamond() {
-        printer.printToList('C') `should equal`
+        DiamondPrinter.printToList('C') `should equal`
         (listOf(
                 "  A  ",
                 " B B ",
@@ -33,8 +29,9 @@ class DiamondPrinterTest {
                 "  A  "))
     }
 
+    @Test
     fun testFiveByFiveDiamond() {
-        printer.printToList('E') `should equal`
+        DiamondPrinter.printToList('E') `should equal`
                 (listOf(
                 "    A    ",
                 "   B B   ",
@@ -47,8 +44,9 @@ class DiamondPrinterTest {
                 "    A    "))
     }
 
+    @Test
     fun testFullDiamond() {
-        printer.printToList('Z') `should equal`
+        DiamondPrinter.printToList('Z') `should equal`
         (listOf(
                 "                         A                         ",
                 "                        B B                        ",
