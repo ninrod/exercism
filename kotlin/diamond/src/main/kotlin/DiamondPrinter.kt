@@ -28,8 +28,7 @@ fun String.dec(): String {
     if (this.trim().filter { it.isWhitespace() }.length == 1) {
         a[f] = a[f].dec()
         a.swap(f, f+1)
-        a[0] = ' '
-        a[a.size - 1] = ' '
+        a[f+2] = ' '
         return a.joinToString("")
     }
 
@@ -52,13 +51,8 @@ object DiamondPrinter {
             d = d.dec()
         }
 
-        /*
-        if (a.size == 1)
-            return a
-
-        for (i in (a.size - 2)..0)
+        for (i in (a.size - 2) downTo 0)
            a.add(a[i])
-         */
 
         return a
     }
@@ -69,8 +63,6 @@ object DiamondPrinter {
 }
 
 fun main() {
-    val s = DiamondPrinter.printToList('e')
+    val s = DiamondPrinter.printToList('c')
     DiamondPrinter.prettyPrint(s)
-
-    println('B'.middle().dec())
 }
