@@ -25,7 +25,7 @@ fun String.dec(): String {
         return ""
     }
 
-    if (this.filter { it.isWhitespace() }.length == 1) {
+    if (this.trim().filter { it.isWhitespace() }.length == 1) {
         a[f] = a[f].dec()
         a.swap(f, f+1)
         a[0] = ' '
@@ -47,16 +47,18 @@ object DiamondPrinter {
         val a = arrayListOf(c.middle())
 
         var d = m.dec()
-        while(d.isNotBlank()) {
+        while(d.isNotEmpty()) {
             a.add(0, d)
             d = d.dec()
         }
 
+        /*
         if (a.size == 1)
             return a
 
         for (i in (a.size - 2)..0)
            a.add(a[i])
+         */
 
         return a
     }
@@ -69,4 +71,6 @@ object DiamondPrinter {
 fun main() {
     val s = DiamondPrinter.printToList('e')
     DiamondPrinter.prettyPrint(s)
+
+    println('B'.middle().dec())
 }
