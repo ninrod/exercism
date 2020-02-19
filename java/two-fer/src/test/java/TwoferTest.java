@@ -1,14 +1,13 @@
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class TwoferTest {
 
     private Twofer twofer;
 
-    @Before
+    @BeforeEach
     public void setup() {
         twofer = new Twofer();
     }
@@ -21,7 +20,6 @@ public class TwoferTest {
         assertEquals(expected, twofer.twofer(input));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void aNameGiven() {
         String input = "Alice";
@@ -30,7 +28,6 @@ public class TwoferTest {
         assertEquals(expected, twofer.twofer(input));
     }
 
-    @Ignore("Remove to run test")
     @Test
     public void anotherNameGiven() {
         String input = "Bob";

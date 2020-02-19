@@ -1,0 +1,20 @@
+// setup ----------------------------------------
+def versions = new Expando()
+def deps = new Expando()
+ext.versions = versions
+ext.deps = deps
+
+// versions -------------------------------------
+versions.logback = "1.2.3"
+versions.slf4j = "1.7.28"
+
+versions.junit = "5.5.1"
+
+// dependencies -------------------------------------
+
+deps.junit = [
+    api    : "org.junit.jupiter:junit-jupiter-api:${versions.junit}",
+    jupiter: "org.junit.jupiter:junit-jupiter:${versions.junit}",
+    engine : "org.junit.jupiter:junit-jupiter-engine:${versions.junit}",
+    vintage: "org.junit.vintage:junit-vintage-engine:${versions.junit}"
+]

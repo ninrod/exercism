@@ -1,0 +1,51 @@
+apply from: "$rootDir/functions.gradle"
+apply from: "$rootDir/versions.gradle"
+apply from: "$rootDir/configs.gradle"
+
+buildscript {
+  apply from: "$rootDir/functions.gradle"
+  apply from: "$rootDir/versions.gradle"
+  apply from: "$rootDir/configs.gradle"
+
+  repositories {
+    if (doWeHaveToUseArtifactory())
+      maven { url(configs.artifactory) }
+    else {
+      jcenter()
+    }
+  }
+  dependencies {
+    if (doWeHaveToUseArtifactory())
+      classpath(deps.jfrog)
+  }
+}
+
+allprojects {
+    apply plugin: "application"
+    apply plugin: "java"
+    apply plugin: "idea"
+
+  group = "org.ninrod.exercism.java"
+  version = "0.0.1"
+  mainClassName = "org.ninrod.exercism.java.seilaoque"
+
+  repositories {
+    if (doWeHaveToUseArtifactory())
+      maven { url (configs.artifactory) }
+    else {
+      jcenter()
+    }
+  }
+
+  test {
+    useJUnitPlatform()
+  }
+
+  dependencies {
+    testCompile(deps.junit.api)
+    testCompile(deps.junit.jupiter)
+
+    testRuntimeOnly(deps.junit.vintage)
+    testRuntimeOnly(deps.junit.engine)
+  }
+}
