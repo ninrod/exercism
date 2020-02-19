@@ -9,7 +9,7 @@
 }
 
 @test "A word" {
-  skip
+  #skip
   run bash reverse_string.sh "robot"
 
   [ "$status" -eq 0 ]
@@ -17,7 +17,7 @@
 }
 
 @test "A capitalised word" {
-  skip
+  #skip
   run bash reverse_string.sh "Ramen"
 
   [ "$status" -eq 0 ]
@@ -25,7 +25,7 @@
 }
 
 @test "A sentence with punctuation" {
-  skip
+  #skip
   run bash reverse_string.sh "I'm hungry!"
 
   [ "$status" -eq 0 ]
@@ -33,7 +33,7 @@
 }
 
 @test "A palindrome" {
-  skip
+  #skip
   run bash reverse_string.sh "racecar"
 
   [ "$status" -eq 0 ]
