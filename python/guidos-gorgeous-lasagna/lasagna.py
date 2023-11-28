@@ -7,15 +7,9 @@ This is a module docstring, used to describe the functionality
 of a module and its functions and/or classes.
 """
 
+EXPECTED_BAKE_TIME=40
 
-#TODO: define the 'EXPECTED_BAKE_TIME' constant.
-
-EXPECTED_BAKE_TIME=100
-
-
-
-#TODO: Remove 'pass' and complete the 'bake_time_remaining()' function below.
-def bake_time_remaining():
+def bake_time_remaining(time_in_the_oven):
     """Calculate the bake time remaining.
 
     :param elapsed_bake_time: int - baking time already elapsed.
@@ -25,20 +19,24 @@ def bake_time_remaining():
     an argument and returns how many minutes the lasagna still needs to bake
     based on the `EXPECTED_BAKE_TIME`.
     """
+    return EXPECTED_BAKE_TIME - time_in_the_oven
 
-    pass
+def preparation_time_in_minutes(number_of_layers):
+    """calculate time in terms of number of layers.
 
+    :param number_of_layers: int - num. de camadas da lasagna
 
-#TODO: Define the 'preparation_time_in_minutes()' function below.
-# You might also consider using 'PREPARATION_TIME' here, if you have it defined.
+    :return: int - o tempo que a lasanha deve ficar a mais (eu acho) no forno em função do num. de camadas
 
-def preparation_time_in_minutes():
-    pass
+    Essa função calcula o tempo de forno de acordo com o número de camdadas da lasanha
+    """
+    return number_of_layers * 2
 
+def elapsed_time_in_minutes(number_of_layers, elapsed_bake_time):
+    """calcula o elapsed time.
+    :param number_of_layers: int - número de layers a ser adicionado na lasagna
+    :param elapsed_bake_time: int - number of minutes lasagna has been baking in the oven
 
-
-#TODO: define the 'elapsed_time_in_minutes()' function below.
-# Remember to add a docstring (you can copy and then alter the one from bake_time_remaining.)
-
-def elapsed_time_in_minutes():
-    pass
+    This function should return the total number of minutes you've been cooking, or the sum of your preparation time and the time the lasagna has already spent baking in the oven.
+    """
+    return elapsed_bake_time + preparation_time_in_minutes(number_of_layers)
