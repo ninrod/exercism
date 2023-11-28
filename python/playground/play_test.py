@@ -20,7 +20,7 @@ class PlayTest(unittest.TestCase):
     @pytest.mark.task(taskno=1)
     def test_palindromo(self):
         input_data = ["filipe", "mm", "mama", "anilina","sopapos", "ama", "radar"]
-        result_data = ["S", "?", "N", "S", "S", "S", "S"]
+        result_data = ["N", "?", "N", "S", "S", "S", "S"]
 
         for variant, (palavra, expected) in enumerate(zip(input_data, result_data), start=1):
             with self.subTest(f'variation #{variant}', palavra=palavra, expected=expected):
