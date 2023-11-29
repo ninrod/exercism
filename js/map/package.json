@@ -1,0 +1,11 @@
+{
+  "name": "play",
+  "version": "1.0.0",
+  "description": "só um playground mesmo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
