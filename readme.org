@@ -4,6 +4,6 @@
 |--------------------+-----------------|
 | programable editor | elisp (emacs)   |
 | scripting          | bash and python |
+| frontend           | typescript      |
 | server side        | kotlin and java |
 | low level/system   | c and rust      |
-| frontend           | typescript      |
