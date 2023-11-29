@@ -1,2 +1,2 @@
 test:
-	./reverse_string_test.sh
+	./reverse_string.sh stringbemgrandona filipe evelize juliana
