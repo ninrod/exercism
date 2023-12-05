@@ -9,3 +9,5 @@
       return false
   return true
 }).forEach(e => console.log(e))
+
+console.log('filipe'.length)
