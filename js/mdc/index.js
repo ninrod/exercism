@@ -74,4 +74,4 @@ function MDCMulti(v) {
 }
 //discursiva:end
 
-console.log(MDCMulti([1024,512,256,128,64,12]))
+console.log(MDCMulti([1024,2048,256,48]))
